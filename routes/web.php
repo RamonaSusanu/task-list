@@ -54,8 +54,11 @@ $tasks = [
         '2023-03-04 12:00:00'
     ),
 ];
+Route::get('/', function(){
+    return redirect()->route('tasks.index');
+});
 
-Route::get('/', function () use($tasks) {
+Route::get('/tasks', function () use($tasks) {
     return view ('index', [
         'tasks' =>$tasks
     ]);
