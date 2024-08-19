@@ -59,9 +59,16 @@ Route::get('/', function () use($tasks) {
     return view ('index', [
         'tasks' =>$tasks
     ]);
-});
+})->name('tasks.index');
 
-Route::get('/hello', function (){
+
+Route::get('/{id}', function ($id){
+    return 'one single task';
+})->name('tasks.show');
+
+
+
+/*Route::get('/hello', function (){
     return 'Hello';
 })->name('hello');
 
@@ -74,7 +81,7 @@ return 'Hello'. ' '. $name . '!';
 Route::get('/hallo', function (){
 
     return redirect()->route('hello');
-});
+});*/
 
 Route::fallback(function(){
 
